@@ -66,6 +66,9 @@ export class EmployeeDetailsComponent implements OnInit{
     public deleteTask(index:any) { 
 
        console.log("Id is",index);
-        this.items.splice(index, 1); 
+       let i=this.items.findIndex(function(element){
+        return element.id==index;
+       })
+        this.items.splice(i, 1); 
     } 
 }
