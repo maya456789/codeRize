@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { EmployeeDetailService } from '../employee-detail.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class EmployeeDetailsComponent implements OnInit{
      pushes text on division */
   public newTask:any; 
 
-  constructor(private fbuild:FormBuilder,private empService:EmployeeDetailService){
+  constructor(private fbuild:FormBuilder,private empService:EmployeeDetailService,private route:Router){
     this.userData=this.fbuild.group({
       id:['',],
       name:['',],
@@ -30,19 +31,38 @@ export class EmployeeDetailsComponent implements OnInit{
 
   ngOnInit(): void {
 
-   this.getData =this.empService.getData();
+   this.empService.getEmpData().subscribe(res=>{
+    this.getData = res;
+   });
     
   }
 
-  removeUser(uid:any){
+  reloadPage(){
+    window.location.reload()
+  }
 
+  removeUser(uid:any){
+    this.empService.deleteEmp(uid).subscribe(res=>{
+      console.log("Delete emp response :",res.status);
+      this.reloadPage();
+    },err=>{
+      console.log(err);
+    })
   }
 
   updateUser(userId:any){
-
+    this.route.navigate([`edit-emp/${userId}`]);
   }
 
   public userFormData(formData: any){
+
+    this.empService.postEmpData(formData).subscribe(res=>{
+      console.log("Post res",res);
+      this.reloadPage();
+    },err=>{
+      console.log("Err resp",err);
+    })
+   
 
     if (this.userData == null) { 
     } 

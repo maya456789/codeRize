@@ -1,11 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeDetailService {
 
-  constructor() { }
+  url="assets/employee_detail.json";
+
+  constructor(private http:HttpClient) { }
 
   public getData(){
     // return this.http.get(`https://reqres.in/api/users`).pipe(
@@ -98,4 +102,24 @@ export class EmployeeDetailService {
       
     
   }
+
+  public getEmpData():Observable<any>{
+   return this.http.get("http://localhost:3000/products")// return this.http.get(this.url);
+  }
+
+  public getEmpForUpdate(userId:any):Observable<any>{
+    return this.http.get(`http://localhost:3000/products/${userId}`);
+  }
+
+  public postEmpData(eData:any):Observable<any>{
+    const url2="http://localhost:3000/products";
+    const body= JSON.stringify(eData);
+
+    return this.http.post(url2,body);
+  }
+
+  public deleteEmp(eId:any):Observable<any>{
+    return this.http.delete(`http://localhost:3000/products/${eId}`);
+  }
+
 }
