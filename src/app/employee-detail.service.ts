@@ -126,4 +126,11 @@ export class EmployeeDetailService {
     return this.http.get(`https://products.coderize.in/api/flame/stac/get_all_stac_items/`);
   }
 
+  public postEmployeeData(empData:any):Observable<any>{
+    const url3="https://products.coderize.in/api/geo-visualizer/geofense/post_employee/";
+    // const body= JSON.stringify(empData);
+    
+    return this.http.post(url3,empData);
+  }
+
 }

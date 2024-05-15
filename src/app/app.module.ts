@@ -12,6 +12,7 @@ import { LeafLetDrawComponent } from './leaf-let-draw/leaf-let-draw.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LeafletDrawModule } from '@asymmetrik/ngx-leaflet-draw';
 import { FlameAdminTableComponent } from './flame-admin-table/flame-admin-table.component';
+import { PostEmployeeComponent } from './post-employee/post-employee.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FlameAdminTableComponent } from './flame-admin-table/flame-admin-table.
     EditEmployeeComponent,
     LeafLetComponent,
     LeafLetDrawComponent,
-    FlameAdminTableComponent
+    FlameAdminTableComponent,
+    PostEmployeeComponent
   ],
   imports: [
     BrowserModule,
