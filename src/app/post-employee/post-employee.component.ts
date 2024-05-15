@@ -13,6 +13,8 @@ export class PostEmployeeComponent implements OnInit{
 
   userData:FormGroup;
   public isSubmitted=false;
+  public showError=false;
+  public errMessage:any;
 
   constructor(private fbuild:FormBuilder,private empService:EmployeeDetailService,private route:Router){
     this.userData=this.fbuild.group({
@@ -38,8 +40,16 @@ export class PostEmployeeComponent implements OnInit{
     this.empService.postEmployeeData(empformData).subscribe(
       (res)=>{
           console.log(res);
+          alert("Employee register successfully");
       },
       (err:HttpErrorResponse)=>{
+        this.showError=true;
+        if(err.status == 500){
+           this.errMessage="Internal server error";
+        }else if(err.status == 404){
+          this.errMessage="Page Not Found";
+        }
+        
         console.log(err);
       }
     )
