@@ -1,0 +1,36 @@
+
+
+
+<div class="scrollme">  
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        
+        <th scope="col">Grade</th>
+        <th scope="col">Major</th>
+        <th scope="col">Minor</th>
+        <th scope="col">Description</th>
+        <th scope="col" >Year</th>
+        
+      </tr>
+    </thead> 
+    <tbody>
+      <tr *ngFor="let list of getFlameData">
+       <td>{{list.id}}</td>
+       <td >{{list.grade}}</td>
+       <td>{{list.major}}</td>
+       <td>{{list.minor}}</td>
+       <td>{{list.descr}}</td>
+       <td>{{list.year}}</td>
+       
+       
+      </tr>   
+
+     
+    </tbody>
+    
+    
+    
+  </table>
+</div>

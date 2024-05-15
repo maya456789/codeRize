@@ -122,4 +122,8 @@ export class EmployeeDetailService {
     return this.http.delete(`http://localhost:3000/employees/${eId}`);
   }
 
+  public getFlameAdminTable():Observable<any>{
+    return this.http.get(`https://products.coderize.in/api/flame/stac/get_all_stac_items/`);
+  }
+
 }
