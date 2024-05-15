@@ -104,22 +104,22 @@ export class EmployeeDetailService {
   }
 
   public getEmpData():Observable<any>{
-   return this.http.get("http://localhost:3000/products")// return this.http.get(this.url);
+   return this.http.get("http://localhost:3000/employees")// return this.http.get(this.url);
   }
 
   public getEmpForUpdate(userId:any):Observable<any>{
-    return this.http.get(`http://localhost:3000/products/${userId}`);
+    return this.http.get(`http://localhost:3000/employees/${userId}`);
   }
 
   public postEmpData(eData:any):Observable<any>{
-    const url2="http://localhost:3000/products";
+    const url2="http://localhost:3000/employees";
     const body= JSON.stringify(eData);
 
     return this.http.post(url2,body);
   }
 
   public deleteEmp(eId:any):Observable<any>{
-    return this.http.delete(`http://localhost:3000/products/${eId}`);
+    return this.http.delete(`http://localhost:3000/employees/${eId}`);
   }
 
 }

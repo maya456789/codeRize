@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -47,12 +47,12 @@ export class EditEmployeeComponent implements OnInit {
 
   onSubmit(updateClient:any){
 
-    this.http.put<any>(`http://localhost:3000/products`+'/'+updateClient.value.id,updateClient.value, {observe: 'response'}).subscribe(res => {
+    this.http.put<any>(`http://localhost:3000/employees`+'/'+updateClient.value.id,updateClient.value, {observe: 'response'}).subscribe(res => {
       console.log('Update status:', res.status);
       console.log('Update Body:', res.body);
       this.route.navigate(["/"]);
      
-    },err=>{
+    },(err:HttpErrorResponse)=>{
        console.log(err);
     });
   }

@@ -1,0 +1,12 @@
+<p>leaf-let-draw works!</p>
+
+<div
+  style="height: 500px;"
+  leaflet
+  leafletDraw
+  [leafletOptions]="options"
+  [leafletDrawOptions]="drawOptions"
+  (leafletDrawCreated)="onDrawCreated($event)"
+>
+  <div [leafletLayer]="drawnItems"></div>
+</div>
