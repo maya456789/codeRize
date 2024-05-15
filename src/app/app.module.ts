@@ -13,6 +13,10 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LeafletDrawModule } from '@asymmetrik/ngx-leaflet-draw';
 import { FlameAdminTableComponent } from './flame-admin-table/flame-admin-table.component';
 import { PostEmployeeComponent } from './post-employee/post-employee.component';
+import { ChartsComponent } from './charts/charts.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgApexchartsModule } from "ng-apexcharts";
 
 @NgModule({
   declarations: [
@@ -22,7 +26,8 @@ import { PostEmployeeComponent } from './post-employee/post-employee.component';
     LeafLetComponent,
     LeafLetDrawComponent,
     FlameAdminTableComponent,
-    PostEmployeeComponent
+    PostEmployeeComponent,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,10 @@ import { PostEmployeeComponent } from './post-employee/post-employee.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    LeafletModule, LeafletDrawModule
+    LeafletModule, LeafletDrawModule,
+    NgxChartsModule,
+    BrowserAnimationsModule,
+    NgApexchartsModule
   ],
   providers: [
     EmployeeDetailService 

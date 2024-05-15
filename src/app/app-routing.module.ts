@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ChartsComponent } from './charts/charts.component';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { FlameAdminTableComponent } from './flame-admin-table/flame-admin-table.component';
@@ -13,7 +14,8 @@ const routes: Routes = [
   // {path:'',component:LeafLetComponent},
   {path:'leaf-let-draw',component:LeafLetDrawComponent},
   {path:'flame-table',component:FlameAdminTableComponent},
-  {path:'post-emp',component:PostEmployeeComponent}
+  {path:'post-emp',component:PostEmployeeComponent},
+  {path:'chart',component:ChartsComponent}
 ];
 
 @NgModule({
